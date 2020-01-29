@@ -1,0 +1,61 @@
+<odoo>
+    <data>
+
+        <record id="list_book_form_view" model="ir.ui.view">
+        <field name="name">list book form</field>
+        <field name="model">list.book</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <label for="title" class="oe_edit_only"/>
+                        <h1><field name="title" placeholder="Describe the Title..."/></h1>
+                    </div>
+                    <group>
+                        <group cols="4">
+                            <field name="author"/>
+                        </group>
+                        <group cols="4">
+                            <field name="date_published"/>
+                            <field name="nop"/>
+                            <field name="tob"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+        </record>
+
+        <record id="list_book_tree_view" model="ir.ui.view">
+        <field name="name">list book tree</field>
+        <field name="model">list.book</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="title"/>
+                <field name="author"/>
+                <field name="date_published"/>
+                <field name="nop"/>
+                <field name="tob"/>
+            </tree>                
+        </field>
+        </record>
+
+        <record id="action_list_book" model="ir.actions.act_window">
+            <field name="name">List Book</field>
+            <field name="res_model">list.book</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>  
+        </record>
+
+        <!-- menu Bar -->    
+        <menuitem id="main_list_book_menu" name="Book" sequence="11"/>
+
+        <menuitem
+        id="list_book"
+        action="action_list_book"
+        parent="main_list_book_menu"
+        sequence="7"
+        />
+
+    </data>
+</odoo>
